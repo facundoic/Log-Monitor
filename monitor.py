@@ -8,7 +8,7 @@ def main():
     for line in file:
         line_split = line.split(':')[1]
         ip = re.findall(pattern, line_split)
-        type(ip)
+        print(type(ip))
         #result.write(str(ip))
 
     file.close()
