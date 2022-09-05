@@ -9,7 +9,7 @@ def main():
         line_split = line.split(':')[1]
         ip = re.findall(pattern, line_split)
         
-        result.write(ip)
+        result.write(str(ip))
 
     file.close()
     result.close()
