@@ -1,8 +1,11 @@
 import re
+import time
+import os
 
 file = open('/var/lib/docker/containers/b124597d22dd3508029ee5a394244ff9e1899a510d99ae65f09d9ced5b20034f/b124597d22dd3508029ee5a394244ff9e1899a510d99ae65f09d9ced5b20034f-json.log', 'r')
 pattern = '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
-result = open("/home/ec2-user/Proyect/Logs/ip.txt", 'w')
+result = open("/home/ec2-user/Proyect/Logs/ip.txt", 'a')
+
 
 def main():
     for line in file:
@@ -16,4 +19,14 @@ def main():
     result.close()
 
 if __name__ == '__main__':
-    main()
+   while 1:
+        try:
+            if len(result.readlines()) < 20:
+                main()
+                time.sleep(20)
+            else: 
+                os.remove(result)
+                result = open("/home/ec2-user/Proyect/Logs/ip.txt", 'a')
+                continue
+        except:
+            print("An error has been occurred!")
