@@ -23,7 +23,7 @@ if __name__ == '__main__':
         try:
             if len(result.readlines()) < 20:
                 main()
-                print("I'm working!')
+                print("I\'m working!')
             else: 
                 os.remove(result)
                 result = open("/home/ec2-user/Project/Logs/ip.txt", 'w')
