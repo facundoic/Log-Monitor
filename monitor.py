@@ -28,6 +28,6 @@ if __name__ == '__main__':
                 os.remove(result)
                 result = open("/home/ec2-user/Project/Logs/ip.txt", 'w')
                 continue
-        except:
-            print("An error has been occurred!")
+        except Exception as e:
+            print(f"An error has been occurred! {e}")
             time.sleep(20)
