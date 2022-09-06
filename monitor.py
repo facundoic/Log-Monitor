@@ -23,10 +23,11 @@ if __name__ == '__main__':
         try:
             if len(result.readlines()) < 20:
                 main()
-                time.sleep(20)
+                print("I'm working!')
             else: 
                 os.remove(result)
                 result = open("/home/ec2-user/Project/Logs/ip.txt", 'w')
                 continue
         except:
             print("An error has been occurred!")
+            time.sleep(20)
