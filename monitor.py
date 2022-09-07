@@ -10,7 +10,7 @@ pattern = '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 def main():
     global result
     while True:
-        with open("/home/ec2-user/Project/Logs/ip.txt", 'r+') as result:
+        with open("/home/ec2-user/Project/Logs/ip.txt", 'w+') as result:
             for line in file:
                 if len(result.readlines()) < 20:
                     print("I\'am Working!")
