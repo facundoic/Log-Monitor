@@ -8,26 +8,20 @@ result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
 
 
 def main():
-    for line in file:
-        line_split = line.split(':')[1]
-        ip = re.findall(pattern, line_split)
+    while True:
+        if len(result.readlines()) < 20:
+            for line in file:
+                line_split = line.split(':')[1]
+                ip = re.findall(pattern, line_split)
 
-        if len(ip) != 0:
-            result.write(str(ip[0]))
+                if len(ip) != 0:
+                    result.write(str(ip[0]))
 
-    file.close()
-    result.close()
-
+            file.close()
+            result.close()
+        else: 
+            os.remove(result)
+            result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
+            continue        
 if __name__ == '__main__':
-   while 1:
-        try:
-            if len(result.readlines()) < 20:
-                main()
-                print("I\'m working!")
-            else: 
-                os.remove(result)
-                result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
-                continue
-        except Exception as e:
-            print(f"An error has been occurred! {e}")
-            time.sleep(20)
+   main()
