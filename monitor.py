@@ -12,12 +12,14 @@ def main():
     while True:
         for line in file:
             if len(result.readlines()) < 20:
+                print("I\'am Working!")
                 line_split = line.split(':')[1]
                 ip = re.findall(pattern, line_split)
 
                 if len(ip) != 0:
                     result.write(str(ip[0]))
-            else: 
+            else:
+                print("The file is complete!")
                 file.close()
                 result.close()
                 continue        
