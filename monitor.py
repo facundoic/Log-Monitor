@@ -10,7 +10,7 @@ with open("/home/ec2-user/Project/Logs/ip.txt", 'r+') as result:
         for line in file:
             if len(result.readlines()) < 20:
                 print("I\'am Working!")
-                print(result.readlines())
+                print(len(result.readlines()))
                 line_split = line.split(':')[1]
                 ip = re.findall(pattern, line_split)
 
