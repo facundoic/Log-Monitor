@@ -8,9 +8,8 @@ pattern = '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}'
 
 
 def main():
-    global result
-    while True:
-        with open("/home/ec2-user/Project/Logs/ip.txt", 'w+') as result:
+    with open("/home/ec2-user/Project/Logs/ip.txt", 'w+') as result:
+        while True:
             for line in file:
                 if len(result.readlines()) < 20:
                     print("I\'am Working!")
@@ -24,6 +23,6 @@ def main():
                     print("The file is complete!")
                     file.close()
                     result.close()
-                    continue        
+                continue        
 if __name__ == '__main__':
    main()
