@@ -10,19 +10,16 @@ result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
 def main():
     global result
     while True:
-        if len(result.readlines()) < 20:
-            for line in file:
+        for line in file:
+            if len(result.readlines()) < 20:
                 line_split = line.split(':')[1]
                 ip = re.findall(pattern, line_split)
 
                 if len(ip) != 0:
                     result.write(str(ip[0]))
-
-            file.close()
-            result.close()
-        else: 
-            os.remove(result)
-            result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
-            continue        
+            else: 
+                file.close()
+                result.close()
+                continue        
 if __name__ == '__main__':
    main()
