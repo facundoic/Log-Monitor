@@ -8,6 +8,7 @@ result = open("/home/ec2-user/Project/Logs/ip.txt", 'r+')
 
 
 def main():
+    global result
     while True:
         if len(result.readlines()) < 20:
             for line in file:
