@@ -1,4 +1,4 @@
 *.pem
 *.log
 *.env
-/ip.txt
+ip.txt
